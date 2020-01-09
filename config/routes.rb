@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :spaceships do
     resources :reviews, only: [:new, :create]
+    resources :bookings, only: [:new, :create]
   end
 end
