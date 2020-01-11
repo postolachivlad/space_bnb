@@ -69,4 +69,6 @@ gem 'webpacker'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'pundit'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.9.1'
 
