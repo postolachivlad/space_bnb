@@ -11,6 +11,8 @@ class SpaceshipsController < ApplicationController
     # find the spaceship by id in DB to show all it info on 'show' page
     set_spaceship
     authorize @ship
+
+    @reviews = Review.where(spaceship_id: @ship.id)
   end
 
   def new
@@ -58,7 +60,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def destroy
-    # destroy the object
+    # destroy the objeReview.where(spaceship_id: @ship.id)ct
     @ship.destroy
     # redirect to Home Page
     redirect_to root_path
