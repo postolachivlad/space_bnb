@@ -39,15 +39,17 @@ class SpaceshipsController < ApplicationController
 
   def edit
     # initializing the '@ship' with existing object for 'Simple Form'
+    authorize @ship
   end
 
   def update
     # initializing the '@ship' with updated values of Spaceship object
-    @ship = Spaceship.update(spaceship_params)
-
+    @ship = Spaceship.find(params[:id])
+    # authorize @ship
     # check if Object was saved in DB
-    if @ship.update
+    if @ship.update(spaceship_params)
       # redirect to Spaceship page
+      authorize @ship
       redirect_to @ship
     else
       # render a new "Simple Form"
