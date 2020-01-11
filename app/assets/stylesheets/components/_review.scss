@@ -1,0 +1,37 @@
+.review-infos {
+  display: flex;
+}
+
+.review {
+  display: flex;
+  border: 1px solid #FFFFFF;
+  color: #69DB57;
+  font-family: "Space Mono", "monospace";
+  align-items: center;
+  border-radius: 6px;
+  background-color: #000000;
+  margin-bottom: 8px;
+  padding: 12px;
+}
+
+.review avatar {
+  height: 40px;
+  width: 40px;
+}
+.review .review-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.review p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.review .review-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+
