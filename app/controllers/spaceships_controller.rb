@@ -1,5 +1,5 @@
 class SpaceshipsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_spaceship, only: [:show, :edit]
 
   def index
@@ -11,6 +11,8 @@ class SpaceshipsController < ApplicationController
     # find the spaceship by id in DB to show all it info on 'show' page
     set_spaceship
     authorize @ship
+
+    @reviews = Review.where(spaceship_id: @ship.id)
   end
 
   def new
@@ -39,15 +41,17 @@ class SpaceshipsController < ApplicationController
 
   def edit
     # initializing the '@ship' with existing object for 'Simple Form'
+    authorize @ship
   end
 
   def update
     # initializing the '@ship' with updated values of Spaceship object
-    @ship = Spaceship.update(spaceship_params)
-
+    @ship = Spaceship.find(params[:id])
+    # authorize @ship
     # check if Object was saved in DB
-    if @ship.update
+    if @ship.update(spaceship_params)
       # redirect to Spaceship page
+      authorize @ship
       redirect_to @ship
     else
       # render a new "Simple Form"
@@ -56,7 +60,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def destroy
-    # destroy the object
+    # destroy the objeReview.where(spaceship_id: @ship.id)ct
     @ship.destroy
     # redirect to Home Page
     redirect_to root_path
