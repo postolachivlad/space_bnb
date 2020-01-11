@@ -8,5 +8,8 @@ class SpaceshipPolicy < ApplicationPolicy
   def show?
     return true
   end
-
+  
+  def new?
+    true
+  end
 end
