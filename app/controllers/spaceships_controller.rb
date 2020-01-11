@@ -9,6 +9,8 @@ class SpaceshipsController < ApplicationController
 
   def show
     # find the spaceship by id in DB to show all it info on 'show' page
+    set_spaceship
+    authorize @ship
   end
 
   def new

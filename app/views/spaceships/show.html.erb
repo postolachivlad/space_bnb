@@ -1,1 +1,20 @@
-<h1>show.html.erb</h1>
+<%= cl_image_tag (@ship.photo), width: 100 , height: 300 %>
+
+<h1><%= @ship.name %></h1>
+<p>Longitude: <%= @ship.longitude %>, Latitude: <%= @ship.latitude %></p>
+<p><%= @ship.description %></p>
+
+<%= link_to "Back", root_path %>
+
+<div class="review">
+  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+  <div class="review-content">
+    <div class="review-infos">
+      <p><small>The Alien</small></p>
+      <p><small> at </small></p> <span> </span>
+      <p><small>20/01/2019 at 5:47pm</small></p>
+    </div>
+    <p>This is a text paragraph, use to tell interesting stuff to our users so they can book. If they book, we make money, if we make money, we buy more spaceships.</p>
+  </div>
+</div>s
+

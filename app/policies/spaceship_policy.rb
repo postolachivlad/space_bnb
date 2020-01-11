@@ -5,6 +5,10 @@ class SpaceshipPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    return true
+  end
+  
   def new?
     true
   end
