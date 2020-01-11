@@ -11,7 +11,12 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <div class="container">
+    <% unless request.fullpath == "/" %>
+      <div class="container">
+    <% else %>
+      <div>
+    <% end %>
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
