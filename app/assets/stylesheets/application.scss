@@ -14,6 +14,7 @@
  *= require_self
  */
 
+@import "bootstrap";
 
 // Graphical variables
 @import "config/fonts";
@@ -27,32 +28,6 @@
 
 
 body {
-  background-color: #FFFFFF;
-}
-
-.h1 {
-  font-family: "Space Mono", "monospace";
-  font-size: 32px;
-  color: #69DB57;
-}
-
-.h2 {
-  font-family: "Space Mono", "monospace";
-  font-size: 24px;
-  color: #69DB57;
-}
-
-
-.a {
-  font-family: "Space Mono", "monospace";
-  font-size: 24px;
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-.p {
-  font-family: "Space Mono", "monospace";
-  font-size: 12px;
-  color: #69DB57;
+  background-color: #A6A4A4;
 }
 
