@@ -14,6 +14,8 @@ class SpaceshipsController < ApplicationController
   def new
     # initializing the '@ship' instance with empty object for 'Simple Form'
     @ship = Spaceship.new
+    authorize @ship
+
   end
 
   def create

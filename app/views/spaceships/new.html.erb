@@ -1,1 +1,16 @@
-<h1>new.html.erb</h1>
+<h1>WELCOME to "Create page"</h1>
+<p>please fill form the form below</p>
+
+
+<%= simple_form_for @ship, url: spaceships_path do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :longitude %>
+  <%= f.input :latitude %>
+  <%= f.input :region %>
+  <%= f.input :min_duration %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+
+  <%= f.submit "Create a spaseship" %>
+<% end %>
