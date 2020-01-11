@@ -1,1 +1,7 @@
-<h1>new.html.erb</h1>
+<h1>Write a review</h1>
+
+<%= simple_form_for [@ship, @review] do |f| %>
+  <%= f.input :description %>
+  <%= f.input :rating %>
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>
