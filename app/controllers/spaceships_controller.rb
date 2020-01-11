@@ -1,9 +1,10 @@
 class SpaceshipsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_spaceship, only: [:show, :edit, :destroy]
 
   def index
     # find all Spaceship from DB and initialize them in @ship instance
-    @ships = Spaceship.all
+    @ships = policy_scope(Spaceship)
   end
 
   def show
