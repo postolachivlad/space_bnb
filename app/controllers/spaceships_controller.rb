@@ -1,6 +1,6 @@
 class SpaceshipsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_spaceship, only: [:show, :edit, :destroy]
+  before_action :set_spaceship, only: [:show, :edit]
 
   def index
     # find all Spaceship from DB and initialize them in @ship instance
@@ -17,14 +17,15 @@ class SpaceshipsController < ApplicationController
     # initializing the '@ship' instance with empty object for 'Simple Form'
     @ship = Spaceship.new
     authorize @ship
-
   end
 
   def create
     # creating a ne Spaceship object and save it in '@ship' instance
     @ship = Spaceship.new(spaceship_params)
     # save the user id for each Spaceship object
-    @ship.user_id = current_user
+    @ship.user = current_user
+
+    authorize @ship
 
     # check if '@ship' was saved in DB
     if @ship.save
@@ -70,6 +71,6 @@ class SpaceshipsController < ApplicationController
   def spaceship_params
     # strong parameters method to avoid XSS
     params.required(:spaceship)
-          .permit(:name, :description, :longitude, :latitude)
+          .permit(:name, :description, :longitude, :latitude, :region, :min_duration, :photo, :photo_cache)
   end
 end
