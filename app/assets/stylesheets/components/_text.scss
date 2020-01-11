@@ -1,25 +1,38 @@
-.h1 {
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700&display=swap');
+$red: #FD1015;
+$blue: #167FFB;
+$yellow: #FFC65A;
+$orange: #E67E22;
+$green: #69DB57;
+$gray: #0E0000;
+$light-gray: #F4F4F4;
+$black: #000000;
+$white: #FFFFFF;
+
+
+body {
+  font-family: "Space Mono", "monospace";
+  background-color: $black;
+}
+
+h1 {
   font-size: 32px;
-  font-family: "Space Mono", "monospace";
-  color: #69DB57;
+  color: $green;
 }
 
-.h2 {
+h2 {
   font-size: 24px;
-  font-family: "Space Mono", "monospace";
-  color: #69DB57;
+  color: $green;
 }
 
 
-.a {
+a {
   font-size: 24px;
-  font-family: "Space Mono", "monospace";
-  color: #FFFFFF;
+  color: $white;
   text-decoration: underline;
 }
 
-.p {
+p {
   font-size: 12px;
-  font-family: "Space Mono", "monospace";
-  color: #69DB57;
+  color: $green;
 }

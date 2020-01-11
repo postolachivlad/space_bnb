@@ -1,4 +1,9 @@
 // Import your components CSS files here.
+// For example:
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700&display=swap');
+$font: "Space Mono", "monospace";
+
+
 @import "alert";
 @import "avatar";
 @import "button";
