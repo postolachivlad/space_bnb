@@ -11,10 +11,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button") %>
         </li>
         <li>
-          <%= link_to('Rent ship', new_spaceship_path, method: :get) %>
+          <%= link_to('Rent ship', new_spaceship_path, method: :get, class: "button") %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -23,11 +23,11 @@
           </div>
         </li>
       <% else %>
-        <li class="button">
-          <%= link_to('Login', new_user_session_path) %>
+        <li>
+          <%= link_to('Login', new_user_session_path, class: "button") %>
         </li>
-        <li class="button">
-          <%= link_to('Sign-up', new_user_registration_path) %>
+        <li>
+          <%= link_to('Sign-up', new_user_registration_path, class: "button") %>
         </li>
       <% end %>
     </ul>
