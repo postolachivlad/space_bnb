@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "Logo.svg" %>
     <% end %>
 
@@ -24,7 +24,7 @@
           <%= link_to('Login', new_user_session_path) %>
         </li>
         <li class="button">
-          <%= link_to('Sign-up', new_user_session_path) %>
+          <%= link_to('Sign-up', new_user_registration_path) %>
         </li>
       <% end %>
     </ul>
