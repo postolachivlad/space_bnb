@@ -6,15 +6,21 @@
 
 <%= link_to "Back", root_path %>
 
+
+
+
+<% @reviews.each do |review| %>
 <div class="review">
   <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
   <div class="review-content">
     <div class="review-infos">
+      <!-- we still need to correct data below -->
       <p><small>The Alien</small></p>
       <p><small> at </small></p> <span> </span>
-      <p><small>20/01/2019 at 5:47pm</small></p>
+      <p><small> <%= review.created_at %> </small></p>
     </div>
     <p>This is a text paragraph, use to tell interesting stuff to our users so they can book. If they book, we make money, if we make money, we buy more spaceships.</p>
   </div>
-</div>s
+</div>
+<% end %>
 
