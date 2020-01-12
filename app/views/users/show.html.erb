@@ -14,7 +14,7 @@
   <% end %>
 
   <p>User Lastname:</p>
-  <% if @user.first_name == nil %>
+  <% if @user.last_name == nil %>
     <%= link_to 'Add lastname', edit_user_path(@user) %>
     <% else %>
     <p><%= @user.last_name %></p>
