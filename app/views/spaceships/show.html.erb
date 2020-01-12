@@ -1,26 +1,42 @@
-<%= cl_image_tag (@ship.photo), width: 100 , height: 300 %>
-
-<h1><%= @ship.name %></h1>
-<p>Longitude: <%= @ship.longitude %>, Latitude: <%= @ship.latitude %></p>
-<p><%= @ship.description %></p>
-
-<%= link_to "Back", root_path %>
-
-
-
-
-<% @reviews.each do |review| %>
-<div class="review">
-  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-  <div class="review-content">
-    <div class="review-infos">
-      <!-- we still need to correct data below -->
-      <p><small>The Alien</small></p>
-      <p><small> at </small></p> <span> </span>
-      <p><small> <%= review.created_at %> </small></p>
+<h1>Ready to roll? This baby is a beast...</h1>
+<br>
+<div style="display: flex">
+  <div>
+  <!-- This first div contains the ship profile and the reviews-->
+    <div class="section">
+    <!-- Ship profile-->
+      <h2><%= @ship.name %></h2>
+      <%= cl_image_tag (@ship.photo), width: 450 , height: 214 %>
+      <p>Longitude: <%= @ship.longitude %>, Latitude: <%= @ship.latitude %></p>
+      <p><%= @ship.description %></p>
+      <%= link_to "Back", root_path %>
     </div>
-    <p>This is a text paragraph, use to tell interesting stuff to our users so they can book. If they book, we make money, if we make money, we buy more spaceships.</p>
+    <br>
+    <!-- Reviews-->
+    <h2>Reviews from all over the galaxy</h2>
+    <% @reviews.each do |review| %>
+    <div class="review">
+      <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+      <div class="review-content">
+        <div class="review-infos">
+          <!-- we still need to correct data below -->
+          <p><small>The Alien</small></p>
+          <p><small> at </small></p> <span> </span>
+          <p><small> <%= review.created_at %> </small></p>
+        </div>
+        <p>This is a text paragraph, use to tell interesting stuff to our users so they can book. If they book, we make money, if we make money, we buy more spaceships.</p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+<div>
+<!-- This second div contains the fixed box with user actions -->
+  <div class="section">
+    <%= link_to('Add review', new_spaceship_review_path(@ship), method: :get, class: "button")%>
   </div>
 </div>
-<% end %>
+
+</div>
 
