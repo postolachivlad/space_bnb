@@ -1,1 +1,10 @@
-<h1>edit.html.erb</h1>
+<h1>Please edit your personal information</h1>
+
+<%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+
+  <%= f.submit "Update information" %>
+<% end %>

@@ -1,1 +1,42 @@
-show.html.erb
+<h1>User information</h1>
+
+
+<%= @user.email %>
+
+<!-- Show basic information on the page -->
+<!-- structure and styles will be changes according to future design -->
+<div>
+  <p>User Name:</p>
+  <% if @user.first_name == nil %>
+    <%= link_to 'Add name', edit_user_path(@user) %>
+    <% else %>
+    <p><%= @user.first_name %></p>
+  <% end %>
+
+  <p>User Lastname:</p>
+  <% if @user.first_name == nil %>
+    <%= link_to 'Add lastname', edit_user_path(@user) %>
+    <% else %>
+    <p><%= @user.last_name %></p>
+  <% end %>
+</div>
+
+<%= cl_image_tag("#{@user.photo}") %>
+
+
+
+<h2><%= @user.first_name %> spaceships to rent</h2>
+
+<div style="display: flex;">
+
+<% @ships.each do |ship| %>
+  <div class="card">
+    <p class="card-title"><%= ship.name %></p>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-infos">
+      <p><%=ship.description %></p>
+      <p><%= link_to "See details", spaceship_path(ship) %></p>
+    </div>
+  </div>
+<% end %>
+</div>

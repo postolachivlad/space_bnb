@@ -3,20 +3,21 @@
 </div>
 
 <br><br><br>
-<h2>Available spaceships</h2>
 
-<div style="display: flex;">
+<div class="home-container">
+  <h1>Find the perfect spaceship</h1>
+  <div class="ships-grid" style="display: flex;">
 
-<% @ships.each do |ship| %>
-  <div class="card">
-    <p class="card-title"><%= ship.name %></p>
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-infos">
-      <p><%=ship.description %></p>
-      <p><%= link_to "See details", spaceship_path(ship) %></p>
+  <% @ships.each do |ship| %>
+    <div class="card">
+      <p class="card-title"><%= ship.name %></p>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-infos">
+        <p><%=ship.description %></p>
+        <p><%= link_to "See details", spaceship_path(ship) %></p>
+      </div>
     </div>
+  <% end %>
+
   </div>
-<% end %>
-
 </div>
-
