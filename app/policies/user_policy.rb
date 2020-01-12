@@ -1,4 +1,4 @@
-class SpaceshipPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,14 +6,6 @@ class SpaceshipPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
-  end
-
-  def new?
-    create?
-  end
-
-  def create?
     true
   end
 
@@ -22,6 +14,6 @@ class SpaceshipPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    user.id == user.id #not sure about this line ask TA
   end
 end

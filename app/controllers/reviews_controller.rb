@@ -1,12 +1,10 @@
 class ReviewsController < ApplicationController
-
+  before_action :set_spaceship, only: [:index, :new, :create]
   def index
-    set_spaceship
     @reviews = Review.all
   end
 
   def new
-    set_spaceship
     authorize @ship
     @review = Review.new
     authorize @review
@@ -14,11 +12,14 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    set_spaceship
     @review.spaceship = @ship
     authorize @review
-    @review.save
-    redirect_to spaceship_path(@ship)
+
+    if @review.save
+      redirect_to spaceship_path(@ship)
+    else
+      render :new
+    end
   end
 
   private
