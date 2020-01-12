@@ -8,12 +8,20 @@
   box-sizing: border-box;
   border-radius: 25px;
   background-color: #000000;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
+
+.card:hover {
+  border: 1px solid #69DB57;
+}
+
+
 
 .card > img {
   height: 120px;
   width: 220px;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .card-title {
