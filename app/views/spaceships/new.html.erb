@@ -1,17 +1,21 @@
-<h1>WELCOME to "Create page"</h1>
-<p>please fill out the form below</p>
+<h1>Add a spaceship</h1>
+<br>
 
+<div class="section">
+
+<h2>Tell us about your ship</h2>
 
 <%= simple_form_for @ship, url: spaceships_path do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :longitude %>
-  <%= f.input :latitude %>
-  <%= f.input :region %>
-  <%= f.input :min_duration %>
+  <%= f.input :name, class: "form-box"%>
+  <%= f.input :description, class: "form-box"%>
+  <%= f.input :longitude, class: "form-box"%>
+  <%= f.input :latitude, class: "form-box"%>
+  <%= f.input :region, class: "form-box"%>
+  <%= f.input :min_duration, class: "form-box"%>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-
-  <%= f.submit "Create a spaceship" %>
+  <%= f.submit "Submit", class: "form-button"%>
 
 <% end %>
+
+</div>

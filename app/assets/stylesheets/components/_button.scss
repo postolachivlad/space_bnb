@@ -10,7 +10,6 @@
   border-radius: 10px;
   padding: 5px 40px;
   margin-right: 10px;
-
 }
 
 .button:hover {
@@ -25,3 +24,33 @@
   text-decoration: none;
   border: 3px solid #FFFFFF;
 }
+
+.form-button {
+  font-size: 16px;
+  height: 40px;
+  color: #69DB57;
+  font-family: "Space Mono", "monospace";
+  font-weight: bold;
+  text-decoration: none;
+  background: #000000;
+  border: 3px solid #69DB57;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 5px 40px;
+  margin-right: 10px;
+}
+
+
+.form-button:hover {
+  background: #69DB57;
+  color: #000000;
+  text-decoration: none;
+}
+
+.form-button:active {
+  background: #FFFFFF;
+  color: #000000;
+  text-decoration: none;
+  border: 3px solid #FFFFFF;
+}
+
