@@ -1,5 +1,7 @@
-
-      <h2>Sign up</h2>
+<div class="sign_in_container">
+  <h1 class="sign_in_h1">Sign up</h1>
+  <div class="section">
+      <h2>Enter your sign up data</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -7,19 +9,22 @@
           <%= f.input :email,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "email" }%>
+                      input_html: { autocomplete: "email" }, placeholder: "Please use your email for registration"%>
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "new-password" }, placeholder: "Enter your password" %>
           <%= f.input :password_confirmation,
                       required: true,
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "new-password" }, placeholder: "Confirm your password" %>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+        <div class="moving-log-in-btn">
+          <%= render "devise/shared/links" %>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "form-button" %>
+          </div>
         </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
+
