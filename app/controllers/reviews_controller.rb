@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 
   def new
     authorize @ship
+    @ship = Spaceship.find(params[:spaceship_id])
     @review = Review.new
     authorize @review
   end

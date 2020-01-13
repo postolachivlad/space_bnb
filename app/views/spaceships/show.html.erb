@@ -19,15 +19,18 @@
     <% else %>
       <% @reviews.each do |review| %>
       <div class="review">
-        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+        <!-- cl_image_tag ("#{@user[0].photo}"), class: "avatar-large"  -->
+        <%= cl_image_tag (@ship.photo), class: "avatar-large" %>
         <div class="review-content">
           <div class="review-infos">
-            <!-- we still need to correct data below -->
-            <p><small>The Alien</small></p>
-            <p><small> at </small></p> <span> </span>
-            <p><small> <%= review.created_at %> </small></p>
+
+            <p class="review-user-name"><%= @user[0].email %></p>  <!-- change on user name after-->
+            <p class="review-creating-date"><small> at </small></p>
+            <p><small><%= review.created_at %></small></p>
+            <p class="review-rating">Rating: <%= review.rating %></p>
           </div>
-          <p>This is a text paragraph, use to tell interesting stuff to our users so they can book. If they book, we make money, if we make money, we buy more spaceships.</p>
+
+          <p class="review-description"><%= review.description %></p>
         </div>
       </div>
       <% end %>
@@ -38,7 +41,7 @@
 <div>
 <!-- This second div contains the fixed box with user actions -->
   <div class="section left-your-review-box">
-    <p>Book it now</p>
+    <p class="booking-form">Book it now</p>
     <%= link_to('Book', new_spaceship_review_path(@ship), method: :get, class: "button margin-bottom")%>
     <%= link_to('Add review', new_spaceship_review_path(@ship), method: :get, class: "button margin-bottom")%>
     <%= link_to('Edit', edit_spaceship_path(@ship), method: :get, class: "button margin-bottom")%>
