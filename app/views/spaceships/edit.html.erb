@@ -1,16 +1,19 @@
-<h1>WELCOME to "Create page"</h1>
-<p>please fill form the form below</p>
+<h1 class="add-spaceship-h1">Edit information about <%= @ship.name %></h1>
 
+<div class="section">
+  <h2>Please edit the form below</h2>
 
-<%= simple_form_for @ship, url: spaceship_path(@ship), method: :patch do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :longitude %>
-  <%= f.input :latitude %>
-  <%= f.input :region %>
-  <%= f.input :min_duration %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-
-  <%= f.submit "Create a spaseship" %>
-<% end %>
+  <%= simple_form_for @ship, url: spaceship_path(@ship), method: :patch do |f| %>
+    <%= f.input :name,class: "form-box", placeholder: "Name*" %>
+    <%= f.input :description,class: "form-box", placeholder: "Description*" %>
+    <%= f.input :longitude,class: "form-box", placeholder: "Longitude*" %>
+    <%= f.input :latitude,class: "form-box", placeholder: "Latitude*" %>
+    <%= f.input :region,class: "form-box", placeholder: "Region" %>
+    <%= f.input :min_duration,class: "form-box", placeholder: "Minimmum booking duration" %>
+    <div class="moving-log-in-btn">
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "Submit", class: "form-button" %>
+    </div>
+  <% end %>
+</div>
