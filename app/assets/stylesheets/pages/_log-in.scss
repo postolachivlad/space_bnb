@@ -1,0 +1,35 @@
+$green: #69DB57;
+.sign_in_container {
+  padding-top: 75px;
+}
+.sign_in_h1 {
+  padding-bottom: 75px;
+}
+.form-control::placeholder {
+  color: $green;
+}
+.form-control, .form-control:focus {
+  background-color : #000000;
+  box-shadow: none;
+  border-color: $green;
+  color: $green;
+  padding-left: 50px;
+  margin-top: 35px;
+  border-radius: 3px;
+}
+.form-inputs{
+  label {
+    display:none;
+  }
+}
+.moving-log-in-btn {
+  display:flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.display-flex-remember-user {
+  display: flex;
+  p {
+    padding-left: 30px;
+  }
+}
