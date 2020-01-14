@@ -43,7 +43,7 @@
   <div class="section left-your-review-box">
     <p class="booking-form">Book it now</p>
 
-      <%= link_to('Book', new_spaceship_review_path(@ship), method: :get, class: "button margin-bottom")%>
+      <%= link_to('Book', new_spaceship_booking_path(@ship), method: :get, class: "button margin-bottom")%>
 
     <% if policy(@reviews).new? %>
       <%= link_to('Add review', new_spaceship_review_path(@ship), method: :get, class: "button margin-bottom")%>
