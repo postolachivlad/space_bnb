@@ -12,12 +12,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    # added status = 0 in order to set initial save to "requested"
+    @booking.status = 0
     @ship = Spaceship.find(params[:spaceship_id])
     @booking.spaceship = @ship
     @booking.user = current_user
     # check if actions is working after finish the view form
-
-
     if @booking.save
       redirect_to @ship
     else
@@ -31,6 +31,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.required(:booking).permit(:start_date, :end_date, :user_id, :spaceship_id, :created_at, :updated_at)
+    params.required(:booking).permit(:start_date, :end_date, :user_id, :spaceship_id, :status, :created_at, :updated_at)
   end
 end
