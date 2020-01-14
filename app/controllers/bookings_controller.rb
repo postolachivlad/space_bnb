@@ -13,12 +13,13 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @ship = Spaceship.find(params[:spaceship_id])
-    @booking.spaceship_id = @ship.id
-    @booking.user_id = @ship.user_id
+    @booking.spaceship = @ship
+    @booking.user = current_user
     # check if actions is working after finish the view form
 
+
     if @booking.save
-      #redirect user(@spaceship)
+      redirect_to @ship
     else
       render :new
     end

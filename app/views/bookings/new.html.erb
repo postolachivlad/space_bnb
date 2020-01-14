@@ -5,7 +5,7 @@
   <h2>How was your epirience</h2>
   <%= simple_form_for [@ship, @booking] do |f| %>
     <%= f.input :start_date, placeholder: "Start date" %>
-    <%= f.input :end_date, placeholder: "Start date" %>
+    <%= f.input :end_date, placeholder: "End date" %>
 
     <div class="moving-review-btn">
       <%= f.submit "Confirm booking", class: "form-button" %>
