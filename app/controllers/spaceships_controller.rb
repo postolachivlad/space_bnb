@@ -11,6 +11,8 @@ class SpaceshipsController < ApplicationController
     # find the spaceship by id in DB to show all it info on 'show' page
     set_spaceship
     authorize @ship
+    # initialize intanse with user of ship
+    @user = User.where(id: @ship)
 
     @reviews = Review.where(spaceship_id: @ship.id)
   end
