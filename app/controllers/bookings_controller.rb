@@ -17,16 +17,18 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     # check if actions is working after finish the view form
 
-
     if @booking.save
-      redirect_to @ship
+      redirect_to user_path(@booking.user)
     else
       render :new
     end
     authorize @booking
   end
 
-  # discus with teammates if we will need other actions for this controller
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
 
   private
 

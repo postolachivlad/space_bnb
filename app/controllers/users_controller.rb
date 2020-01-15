@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     # show all information about user on user page
     @user = current_user
     @ships = Spaceship.where(user_id: @user.id)
+    @bookings = Booking.where(user_id: @user.id)
     authorize @user
   end
 
