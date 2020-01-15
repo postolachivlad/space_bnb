@@ -6,7 +6,9 @@
     <div class="section">
     <!-- Ship profile-->
       <h2 class="spaceship-name"><%= @ship.name %></h2>
-      <%= cl_image_tag (@ship.photo), class: "spaceship-photo" %>
+      <div class="crop-photo">
+        <%= cl_image_tag (@ship.photo), class: "spaceship-photo" %>
+      </div>
       <p>Longitude: <%= @ship.longitude %>, Latitude: <%= @ship.latitude %></p>
       <p class="spaceship-description"><%= @ship.description %></p>
       <%= link_to "Back", root_path %>

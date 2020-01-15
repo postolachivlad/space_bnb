@@ -6,11 +6,18 @@
   font-size: 25px;
   padding-bottom: 25px;
 }
-.spaceship-photo {
+.crop-photo {
   min-width: 480px;
   max-width: 680px;
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.spaceship-photo {
+  // background-position: center;
   height: 100%;
-  background-position: center;
+  width: 100%;
   padding-bottom: 25px;
 }
 .spaceship-description {
