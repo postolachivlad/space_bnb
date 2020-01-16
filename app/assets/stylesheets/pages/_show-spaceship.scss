@@ -2,19 +2,36 @@
   font-size: 35px;
   padding: 50px 0;
 }
+
 .spaceship-name{
   font-size: 25px;
   padding-bottom: 25px;
 }
+
 .spaceship-photo {
   width: 100%;
   height: 400px;
   background-position: center;
   padding-bottom: 25px;
 }
+
+.crop-photo {
+  min-width: 480px;
+  max-width: 680px;
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.spaceship-photo {
+  height: 100%;
+  width: 100%;
+}
 .spaceship-description {
   padding: 25px 0;
 }
+
 .left-your-review-box {
   min-width: 276px;
 }
