@@ -5,8 +5,12 @@ class SpaceshipPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def show?
-    return true
+    true
   end
 
   def new?
