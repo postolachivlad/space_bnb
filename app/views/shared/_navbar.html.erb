@@ -4,7 +4,7 @@
   <% end %>
 
   <div class="navbar-position">
-        <%= form_tag root_path, method: :get do %>
+        <%= form_tag spaceships_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-box search-form-styles",

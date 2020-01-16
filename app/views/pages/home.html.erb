@@ -1,8 +1,11 @@
-<h1 class="add-spaceship-h1">Find the perfect spaceship</h1>
+<div class="home-splash">
+  <h1>Welcome to your journey in space...</h1>
+</div>
 
-<div class="container-for-ships-and-map">
-  <div class="container-for-ships-cards">
+<br><br><br>
 
+<div class="home-container">
+  <h1>Find the perfect spaceship</h1>
   <div class="ships-grid" style="display: flex;">
 
   <% @ships.each do |ship| %>
@@ -15,11 +18,6 @@
       </div>
     </div>
   <% end %>
-  </div>
 
-  <div class="container-for-the-map">
-    <%=  image_tag "Logo.jpg", class: "map-settings" %>
   </div>
-
 </div>
-

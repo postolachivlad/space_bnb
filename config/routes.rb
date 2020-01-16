@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "spaceships#index"
+  root to: "pages#home"
 
-  resources :spaceships, except: :index do
+  resources :spaceships do
     resources :reviews, only: [:new, :create]
     resources :bookings, only: [:new, :create]
   end
@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :bookings, only: [:edit]
   end
+  resources :pages, only: :index
 end
