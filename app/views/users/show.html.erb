@@ -49,8 +49,9 @@
       <p>To: <%= booking.end_date %></p>
       <p>By: <%= booking.user.first_name %></p>
       <p>Status: <%= booking.status %></p>
-      <!-- how do I root the user to the correct Booking? -->
-      <p><%= link_to "See more details",  edit_user_booking_path(id: booking.id, user_id: booking.user_id) %></p>
+      <% if booking.status == "requested" %>
+        <p class="button"><%= link_to "Cancel booking", user_booking_path(user_id: @user, id: booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
+      <% end %>
     </div>
   <% end %>
 </div>
@@ -70,8 +71,11 @@
             <p><%= booking.start_date %></p>
             <p><%= booking.end_date %></p>
             <p><%= booking.status %></p>
-            <!-- how do I root the user to the correct Booking? -->
-            <p><%= link_to "See more details",  edit_user_booking_path(id: booking.id, user_id: booking.user_id) %></p>
+
+            <% if booking.status == "requested" %>
+              <p class="button"><%= link_to "accept", user_booking_path(user_id: @user, id: booking, status: "accepted"), method: :patch, data: { confirm: "Are you sure?" }  %></p>
+              <p class="button"><%= link_to "declined", user_booking_path(user_id: @user, id: booking, status: "declined"), method: :patch, data: { confirm: "Are you sure?" } %></p>
+            <% end %>
           </div>
         <% end %>
       </div>
