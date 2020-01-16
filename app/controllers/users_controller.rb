@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    # save new information in bd
+    # save new information in db
     authorize @user
 
     if @user.update(user_params)

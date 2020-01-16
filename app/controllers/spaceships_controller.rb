@@ -5,6 +5,15 @@ class SpaceshipsController < ApplicationController
   def index
     # find all Spaceship from DB and initialize them in @ship instance
     @ships = policy_scope(Spaceship)
+    @ships = Spaceship.geocoded #returns ships with coordinates
+
+    @markers = @ships.map do |ship|
+      {
+        lat: ship.latitude,
+        lng: ship.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { ship: ship })
+      }
+    end
   end
 
   def show
