@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   border-bottom: 2px #FFFFFF;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +17,13 @@
 
 .navbar-lewagon > .button {
   width: 40px;
+}
+
+.navbar-position{
+  display: flex;
+}
+
+.search-form-styles{
+  padding: 5px 15px 5px 15px;
+  width: 375px;
 }
