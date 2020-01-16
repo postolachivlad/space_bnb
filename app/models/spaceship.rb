@@ -1,8 +1,8 @@
 class Spaceship < ApplicationRecord
   # Settings for PG_SEARCH gem
   include PgSearch::Model
-  pg_search_scope :search_by_name_and_description,
-    against: [:name, :description],
+  pg_search_scope :search_ships,
+    against: [:name, :region],
     using: {
       tsearch: { prefix: true }
     }
