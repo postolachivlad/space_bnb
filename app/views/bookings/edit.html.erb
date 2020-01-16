@@ -1,1 +1,9 @@
-<h1>test edit booking</h1>
+<h1>Update this booking</h1>
+
+<%= simple_form_for @user, url: user_booking_path(@booking), method: :patch do |u| %>
+  <%= u.simple_fields_for @booking do |b| %>
+
+    <%= b.input :status %>
+    <%= b.submit "Update booking" %>
+  <% end %>
+<% end %>
