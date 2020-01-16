@@ -65,7 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Alex - Dan -Vlad - gems
 gem 'devise'
-gem 'webpacker'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'pundit'
@@ -73,5 +72,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'simple_form'
+
+gem 'geocoder'
 gem 'enum_help' # this gem helps to make simpleform for "enum" easier
 gem 'pg_search', '~> 2.3.0'

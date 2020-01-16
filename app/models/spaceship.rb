@@ -18,7 +18,8 @@ class Spaceship < ApplicationRecord
   validates :name, presence: true,
                    uniqueness: true
   validates :description, presence: true
-  validates :longitude, presence: true
-  validates :latitude, presence: true
   validates :min_duration, presence: true
+
+  geocoded_by :region
+  after_validation :geocode, if: :will_save_change_to_region?
 end
