@@ -47,6 +47,7 @@
     <p class="card-title">New booking request</p>
     <p><%= booking.start_date %></p>
     <p><%= booking.end_date %></p>
+    <p><%= booking.status %></p>
     <!-- how do I root the user to the correct Booking? -->
     <p><%= link_to "See more details",  edit_user_booking_path(id: booking.id, user_id: booking.user_id) %></p>
   </div>
