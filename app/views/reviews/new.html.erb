@@ -4,7 +4,7 @@
 
   <h2>How was your epirience</h2>
   <%= simple_form_for [@ship, @review] do |f| %>
-    <%= f.input :rating, placeholder: "Your rating (1-5)" %>
+    <%= f.input :rating, placeholder: "Your rating (1-5)", input_html: { min: '0', max: '5', step: '1' }%>
     <%= f.input :description, placeholder: "Tell us about your experience" %>
     <div class="moving-review-btn">
       <%= f.submit "Submit", class: "form-button" %>

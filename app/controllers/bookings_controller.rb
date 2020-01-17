@@ -34,10 +34,17 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(status: params[:user][:booking][:status])
+    @booking.update(status: params[:status])
     authorize @booking
-
     redirect_to user_path(@booking.user)
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    authorize @booking
+    redirect_to user_path(@user)
   end
 
   private

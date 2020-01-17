@@ -1,9 +1,12 @@
+
 <h1 class="add-spaceship-h1">Find the perfect spaceship</h1>
 
 <div class="container-for-ships-and-map">
   <div class="container-for-ships-cards">
 
+
   <div class="ships-grid" style="display: flex;">
+
 
   <% @ships.each do |ship| %>
     <div class="card">
@@ -15,6 +18,32 @@
       </div>
     </div>
   <% end %>
+
+    <!-- check if user is coming from "search bar" or from button "I need a spaceship"-->
+    <% unless request.fullpath == "/spaceships" %>
+      <% @search_ships.each do |ship| %>
+        <div class="card">
+          <p class="card-title"><%= ship.name %></p>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-infos">
+            <p><%=ship.description %></p>
+            <p><%= link_to "See details", spaceship_path(ship) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <% @ships.each do |ship| %>
+        <div class="card">
+          <p class="card-title"><%= ship.name %></p>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-infos">
+            <p><%=ship.description %></p>
+            <p><%= link_to "See details", spaceship_path(ship) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
   </div>
 
   <div class="container-for-the-map">
@@ -28,3 +57,10 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+
+
+</div>
+
+
+
+

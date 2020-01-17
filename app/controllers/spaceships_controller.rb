@@ -4,8 +4,13 @@ class SpaceshipsController < ApplicationController
 
   def index
     # find all Spaceship from DB and initialize them in @ship instance
-    @ships = policy_scope(Spaceship)
-    @ships = Spaceship.geocoded #returns ships with coordinates
+    # raise
+    @ships = policy_scope(Spaceship)\
+
+    # diferent name for instance with reason to not over write it
+    @search_ships = Spaceship.search_ships(params[:query])
+
+    # authorize @ships
 
     @markers = @ships.map do |ship|
       {
@@ -21,7 +26,7 @@ class SpaceshipsController < ApplicationController
     set_spaceship
     authorize @ship
     # initialize intanse with user of ship
-    @user = User.where(id: @ship)
+    @user = User.where(id: @ship.user_id)
 
     @reviews = Review.where(spaceship_id: @ship.id)
   end
