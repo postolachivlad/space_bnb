@@ -5,8 +5,10 @@ class SpaceshipsController < ApplicationController
   def index
     # find all Spaceship from DB and initialize them in @ship instance
     # raise
-    @ships = policy_scope(Spaceship)
-    @ships = Spaceship.search_ships(params[:query])
+    @ships = policy_scope(Spaceship)\
+
+    # diferent name for instance with reason to not over write it
+    @search_ships = Spaceship.search_ships(params[:query])
 
     # authorize @ships
 
