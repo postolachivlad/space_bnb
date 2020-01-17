@@ -24,7 +24,7 @@ class SpaceshipsController < ApplicationController
     set_spaceship
     authorize @ship
     # initialize intanse with user of ship
-    @user = User.where(id: @ship)
+    @user = User.where(id: @ship.user_id)
 
     @reviews = Review.where(spaceship_id: @ship.id)
   end
