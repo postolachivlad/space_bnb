@@ -28,30 +28,56 @@
 <h2><%= @user.first_name %>'s spaceships to rent</h2>
 
 <div style="display: flex;">
-
-<% @ships.each do |ship| %>
-  <div class="card">
-    <p class="card-title"><%= ship.name %></p>
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-infos">
-      <p><%=ship.description %></p>
-      <p><%= link_to "See details", spaceship_path(ship) %></p>
+  <% @ships.each do |ship| %>
+    <div class="card">
+      <p class="card-title"><%= ship.name %></p>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-infos">
+        <p><%=ship.description %></p>
+        <p><%= link_to "See details", spaceship_path(ship) %></p>
+      </div>
     </div>
-  </div>
-<% end %>
-
-<h2>Your planned bookings</h2>
-
-<% @bookings.each do |booking| %>
-  <div class="card">
-    <p class="card-title">New booking request</p>
-    <p><%= booking.start_date %></p>
-    <p><%= booking.end_date %></p>
-    <p><%= booking.status %></p>
-    <!-- how do I root the user to the correct Booking? -->
-    <p><%= link_to "See more details",  edit_user_booking_path(id: booking.id, user_id: booking.user_id) %></p>
-  </div>
-<% end %>
-
-
+  <% end %>
 </div>
+
+<!-- if a user has booked other spaceships, they will be displayed in the following -->
+<h2>Your planned bookings</h2>
+<div style="display: flex;">
+  <% @bookings.each do |booking| %>
+    <div class="card">
+      <p>From: <%= booking.start_date %></p>
+      <p>To: <%= booking.end_date %></p>
+      <p>By: <%= booking.user.first_name %></p>
+      <p>Status: <%= booking.status %></p>
+      <% if booking.status == "requested" %>
+        <p class="button"><%= link_to "Cancel booking", user_booking_path(user_id: @user, id: booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+<!-- If a host has received a booking, it will be display in the following -->
+<h2>Your received bookings</h2>
+<% @ships.each do |ship| %>
+    <% if ship.bookings.empty?  %>
+      <!-- if there is no booking, the ship shouldn't be displayed here -->
+    <% else %>
+      <h3><%= ship.name %></h3>
+      <div style="display: flex;">
+        <% ship.bookings.each do |booking| %>
+          <div class="card">
+            <p class="card-title">New booking request</p>
+            <p><%= booking.start_date %></p>
+            <p><%= booking.end_date %></p>
+            <p><%= booking.status %></p>
+
+            <% if booking.status == "requested" %>
+              <p class="button"><%= link_to "accept", user_booking_path(user_id: @user, id: booking, status: "accepted"), method: :patch, data: { confirm: "Are you sure?" }  %></p>
+              <p class="button"><%= link_to "declined", user_booking_path(user_id: @user, id: booking, status: "declined"), method: :patch, data: { confirm: "Are you sure?" } %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+<% end %>
