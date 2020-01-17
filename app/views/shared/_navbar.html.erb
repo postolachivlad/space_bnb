@@ -4,7 +4,7 @@
   <% end %>
 
   <div class="navbar-position">
-        <%= form_tag root_path, method: :get do %>
+        <%= form_tag spaceships_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-box search-form-styles",
@@ -20,16 +20,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button") %>
-        </li>
-        <li>
-          <%= link_to('Create a ship', new_spaceship_path, method: :get, class: "button") %>
-        </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button") %>
           </div>
         </li>
       <% else %>

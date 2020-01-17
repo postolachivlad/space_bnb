@@ -4,7 +4,19 @@ class SpaceshipsController < ApplicationController
 
   def index
     # find all Spaceship from DB and initialize them in @ship instance
+    # raise
     @ships = policy_scope(Spaceship)
+    @ships = Spaceship.search_ships(params[:query])
+
+    # authorize @ships
+
+    @markers = @ships.map do |ship|
+      {
+        lat: ship.latitude,
+        lng: ship.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { ship: ship })
+      }
+    end
   end
 
   def show
