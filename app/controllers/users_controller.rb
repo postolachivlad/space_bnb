@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   def show
     # show all information about user on user page
     @user = current_user
-    @ships = Spaceship.where(user_id: @user.id)
-    @bookings = Booking.where(user_id: @user.id)
+    @ships = @user.spaceships
+    @bookings = @user.bookings # same as "Booking.where(user_id: @user.id)" - just cooler
     authorize @user
   end
 
