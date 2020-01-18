@@ -1,11 +1,12 @@
+<div class="navbar-buffer"></div>
 <h1 class="review-h1">Book <%= @ship.name %></h1>
 
 <div class="section">
 
-  <h2>How was your expirience</h2>
+  <h2>Which dates would you like to book?</h2>
   <%= simple_form_for [@ship, @booking] do |f| %>
-    <%= f.input :start_date, placeholder: "Start date" %>
-    <%= f.input :end_date, placeholder: "End date" %>
+    <h3><%= f.input :start_date, placeholder: "Start date" %></h3>
+    <h3><%= f.input :end_date, placeholder: "End date" %></h3>
 
     <div class="moving-review-btn">
       <%= f.submit "Confirm booking", class: "form-button" %>
