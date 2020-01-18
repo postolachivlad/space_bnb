@@ -33,15 +33,15 @@
 
 <div style="display: flex;">
   <% @ships.each do |ship| %>
-    <%= link_to spaceship_path(ship) do %> <!-- whole card is clickable -->
+    <%= link_to spaceship_path(ship) do %>
       <div class="card">
         <p class="card-title"><%= ship.name %></p>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%= cl_image_tag (ship.photo) %>
         <div class="card-infos">
-          <p><%=ship.description %></p>
+          <p><%=ship.region %></p>
         </div>
       </div>
-    <% end %>
+    <%end%>
   <% end %>
 </div>
 
