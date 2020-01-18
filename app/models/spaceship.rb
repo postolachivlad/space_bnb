@@ -18,7 +18,7 @@ class Spaceship < ApplicationRecord
   validates :name, presence: true,
                    uniqueness: true
   validates :description, presence: true
-  validates :min_duration, presence: true
+  # validates :min_duration -->commented out because adjustment of Spaceship creation form
 
   geocoded_by :region
   after_validation :geocode, if: :will_save_change_to_region?
