@@ -15,13 +15,15 @@
 
   <body>
     <%= render 'shared/navbar' %>
-     <% unless request.fullpath == "/" %>
-      <div class="container">
-    <% else %>
+    <% if request.fullpath == "/" %>
       <div>
+        <%= yield %>
+      </div>
+    <% else %>
+      <div class="container">
+        <%= yield %>
+      </div>
     <% end %>
-      <%= yield %>
-    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
 

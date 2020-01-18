@@ -6,8 +6,6 @@
   <%= simple_form_for @ship, url: spaceships_path do |f| %>
     <%= f.input :name, class: "form-box", placeholder: "Name"%>
     <%= f.input :description, class: "form-box", placeholder: "Description"%>
-    <%= f.input :longitude, class: "form-box", placeholder:"Longitude"%>
-    <%= f.input :latitude, class: "form-box", placeholder: "Latitude"%>
     <%= f.input :region, class: "form-box", placeholder: "Region"%>
     <%= f.input :min_duration, class: "form-box", placeholder: "Minimum duration of booking in days", min:"0" %>
     <div class="moving-log-in-btn">
