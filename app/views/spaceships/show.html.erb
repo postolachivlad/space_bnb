@@ -9,9 +9,8 @@
       <div class="crop-photo">
         <%= cl_image_tag (@ship.photo), class: "spaceship-photo" %>
       </div>
-      <p>Longitude: <%= @ship.longitude %>, Latitude: <%= @ship.latitude %></p>
-      <p class="spaceship-description"><%= @ship.description %></p>
-      <%= link_to "Back", root_path %>
+      <p>Located at: <%= @ship.region %></p>
+      <p class="spaceship-description">Description: <br> <%= @ship.description %></p>
     </div>
     <br>
     <!-- Reviews-->
@@ -30,7 +29,6 @@
               <p><small><%= review.created_at %></small></p>
               <p class="review-rating">Rating: <%= review.rating %></p>
             </div>
-
             <p class="review-description"><%= review.description %></p>
           </div>
         </div>
