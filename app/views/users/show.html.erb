@@ -1,31 +1,35 @@
 <h1>User information</h1>
 
+<!-- Profile Card -->
 
-<%= @user.email %>
+<h1 class="h1-phrase">Your Profile</h1>
+<br>
+<div style="display: flex">
+  <div>
+  <!-- This first div contains the ship profile and the reviews-->
+    <div class="section">
+    <!-- Ship profile-->
+      <h2 class="spaceship-name">Your information</h2>
+      <div class="crop-photo">
+        <%= cl_image_tag (@user.photo), class: "avatar-xl-large" %>
+      </div>
+      <p>First name: <%= @user.first_name %></p>
+      <p>Last name: <%= @user.last_name %></p>
+      <p>Email: <%= @user.email %></p>
+    </div>
+  </div>
 
-<!-- Show basic information on the page -->
-<!-- structure and styles will be changes according to future design -->
-<div>
-  <p>User Name:</p>
-  <% if @user.first_name == nil %>
-    <%= link_to 'Add name', edit_user_path(@user) %>
-    <% else %>
-    <p><%= @user.first_name %></p>
-  <% end %>
-
-  <p>User Lastname:</p>
-  <% if @user.last_name == nil %>
-    <%= link_to 'Add lastname', edit_user_path(@user) %>
-    <% else %>
-    <p><%= @user.last_name %></p>
-  <% end %>
+  <div>
+  <!-- This second div contains the fixed box with user actions -->
+    <div class="section left-your-review-box">
+      <p class="booking-form">Options</p>
+        <%= link_to('Edit profile', edit_user_path(@user), class: "button margin-bottom")%>
+    </div>
+  </div>
 </div>
-
-<%= cl_image_tag("#{@user.photo}") %>
-
-
-
-<h2><%= @user.first_name %>'s spaceships to rent</h2>
+<br><br>
+<h2>Spaceships you are renting out</h2>
+<br>
 
 <div style="display: flex;">
   <% @ships.each do |ship| %>
@@ -39,9 +43,10 @@
     </div>
   <% end %>
 </div>
-
+<br><br>
 <!-- if a user has booked other spaceships, they will be displayed in the following -->
 <h2>Your planned bookings</h2>
+<br>
 <div style="display: flex;">
   <% @bookings.each do |booking| %>
     <div class="card">
@@ -55,15 +60,17 @@
     </div>
   <% end %>
 </div>
-
+<br><br>
 
 <!-- If a host has received a booking, it will be display in the following -->
 <h2>Your received bookings</h2>
+<br>
 <% @ships.each do |ship| %>
     <% if ship.bookings.empty?  %>
       <!-- if there is no booking, the ship shouldn't be displayed here -->
     <% else %>
-      <h3><%= ship.name %></h3>
+      <h3>Bookings for: <%= ship.name %></h3>
+      <br>
       <div style="display: flex;">
         <% ship.bookings.each do |booking| %>
           <div class="card">
@@ -79,5 +86,10 @@
           </div>
         <% end %>
       </div>
+      <br>
     <% end %>
 <% end %>
+
+
+
+
