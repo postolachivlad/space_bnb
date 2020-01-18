@@ -5,25 +5,27 @@
     <!-- check if user is coming from "search bar" or from button "I need a spaceship"-->
     <% unless request.fullpath == "/spaceships" %>
       <% @search_ships.each do |ship| %>
-        <div class="card">
-          <p class="card-title"><%= ship.name %></p>
-          <%= cl_image_tag (@ship.photo), class: "spaceship-photo" %>
-          <div class="card-infos">
-            <p><%=ship.description %></p>
-            <p><%= link_to "See details", spaceship_path(ship) %></p>
+        <%= link_to spaceship_path(ship) do %>
+          <div class="card">
+            <p class="card-title"><%= ship.name %></p>
+            <%= cl_image_tag (ship.photo), class: "spaceship-photo" %>
+            <div class="card-infos">
+              <p><%=ship.region %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% else %>
       <% @ships.each do |ship| %>
-        <div class="card">
-          <p class="card-title"><%= ship.name %></p>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <div class="card-infos">
-            <p><%=ship.region %></p>
-            <p><%= link_to "See details", spaceship_path(ship) %></p>
+        <%= link_to spaceship_path(ship) do %>
+          <div class="card">
+            <p class="card-title"><%= ship.name %></p>
+            <%= cl_image_tag (ship.photo), class: "spaceship-photo" %>
+            <div class="card-infos">
+              <p><%=ship.region %></p>
+            </div>
           </div>
-        </div>
+        <%end%>
       <% end %>
     <% end %>
   </div>
