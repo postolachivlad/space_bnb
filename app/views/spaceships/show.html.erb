@@ -40,23 +40,23 @@
   </div>
 
 
-<div>
-<!-- This second div contains the fixed box with user actions -->
-  <div class="section left-your-review-box">
-    <p class="booking-form">Book it now</p>
+  <div>
+  <!-- This second div contains the fixed box with user actions -->
+    <div class="section left-your-review-box">
+      <p class="booking-form">Book it now</p>
 
-      <%= link_to('Book', new_spaceship_booking_path(@ship), method: :get, class: "button margin-bottom")%>
+        <%= link_to('Book', new_spaceship_booking_path(@ship), method: :get, class: "button margin-bottom")%>
 
-    <% if policy(@reviews).new? %>
-      <%= link_to('Add review', new_spaceship_review_path(@ship), method: :get, class: "button margin-bottom")%>
-    <% end %>
+      <% if policy(@reviews).new? %>
+        <%= link_to('Add review', new_spaceship_review_path(@ship), method: :get, class: "button margin-bottom")%>
+      <% end %>
 
-     <% if policy(@ship).edit? %>
-      <%= link_to('Edit', edit_spaceship_path(@ship), method: :get, class: "button margin-bottom")%>
-    <% end %>
+       <% if policy(@ship).edit? %>
+        <%= link_to('Edit', edit_spaceship_path(@ship), method: :get, class: "button margin-bottom")%>
+      <% end %>
 
+    </div>
   </div>
-</div>
 
 </div>
 
