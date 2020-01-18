@@ -1,8 +1,9 @@
+<div class="navbar-buffer"></div>
 <h1 class="review-h1">Leave a review for <%= @ship.name %></h1>
 
 <div class="section">
 
-  <h2>How was your epirience</h2>
+  <h2>How was your experience?</h2>
   <%= simple_form_for [@ship, @review] do |f| %>
     <%= f.input :rating, placeholder: "Your rating (1-5)", input_html: { min: '0', max: '5', step: '1' }%>
     <%= f.input :description, placeholder: "Tell us about your experience" %>

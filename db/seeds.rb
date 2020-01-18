@@ -48,5 +48,14 @@ ships = Spaceship.create(
       min_duration: 5,
       photo: "../../app/assets/images/5_Fire_stingray.jpg"
     },
+
+    {
+      name: 'Fire Stingray',
+      description: "Fire Stingray, an extremely small craft with only one fin sporting a pinkish color with fire painted on the back of the ship. Careful and perfectly timed use of the super jet (boost) is the key to operating this machine. ",
+      region: "Holzmarktstraße 25, 10243 Berlin",
+      user_id: 1,
+      min_duration: 5,
+      photo: "../../app/assets/images/5_Fire_stingray.jpg"
+    },
   ]
   )
