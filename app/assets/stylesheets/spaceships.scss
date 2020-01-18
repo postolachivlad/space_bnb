@@ -7,14 +7,15 @@
   color: #69DB57;
 }
 
-.ships-grid {
+.index-container {
+  display: flex;
   width: 1000px;
-  margin: auto;
 }
 
 .ships-grid {
-  width: 1000px;
-  margin: auto;
+  width: 600px;
   display: flex;
+  flex-wrap: wrap;
 }
+
 
