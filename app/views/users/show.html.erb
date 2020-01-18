@@ -31,6 +31,7 @@
 <h2>Spaceships you are renting out</h2>
 <br>
 
+
 <div style="display: flex;">
   <% @ships.each do |ship| %>
     <div class="card">
@@ -43,53 +44,56 @@
     </div>
   <% end %>
 </div>
+
 <br><br>
+
 <!-- if a user has booked other spaceships, they will be displayed in the following -->
 <h2>Your planned bookings</h2>
 <br>
-<div style="display: flex;">
-  <% @bookings.each do |booking| %>
-    <div class="card">
-      <p>From: <%= booking.start_date %></p>
-      <p>To: <%= booking.end_date %></p>
-      <p>By: <%= booking.user.first_name %></p>
-      <p>Status: <%= booking.status %></p>
-      <% if booking.status == "requested" %>
-        <p class="button"><%= link_to "Cancel booking", user_booking_path(user_id: @user, id: booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
-      <% end %>
+<% @bookings.each do |booking| %>
+  <div class="review">
+    <%= cl_image_tag (booking.user.photo), class: "avatar-large" %>
+    <div class="review-content">
+      <div class="review-infos">
+        <p class="review-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %> </p>  <!-- change on user name after-->
+        <p class="review-creating-date">From <%= booking.start_date %> to <%= booking.end_date %></p>
+        <p>Status: <%= booking.status %></p>
+        <% if booking.status == "requested" %>
+          <p class="button button-small"><%= link_to "Cancel", user_booking_path(user_id: @user, id: booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
+        <% else %>
+          <div class="block"></div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-</div>
-<br><br>
+  </div>
+<% end %>
 
 <!-- If a host has received a booking, it will be display in the following -->
 <h2>Your received bookings</h2>
 <br>
 <% @ships.each do |ship| %>
-    <% if ship.bookings.empty?  %>
-      <!-- if there is no booking, the ship shouldn't be displayed here -->
-    <% else %>
-      <h3>Bookings for: <%= ship.name %></h3>
-      <br>
-      <div style="display: flex;">
-        <% ship.bookings.each do |booking| %>
-          <div class="card">
-            <p class="card-title">New booking request</p>
-            <p><%= booking.start_date %></p>
-            <p><%= booking.end_date %></p>
-            <p><%= booking.status %></p>
-
+  <% if ship.bookings.empty?  %>
+    <!-- if there is no booking, the ship shouldn't be displayed here -->
+  <% else %>
+    <h3>Bookings for: <%= ship.name %></h3>
+    <br>
+    <!-- adding received bookings below -->
+    <% ship.bookings.each do |booking| %>
+      <div class="review">
+        <%= cl_image_tag (booking.user.photo), class: "avatar-large" %>
+        <div class="review-content">
+          <div class="review-infos">
+            <p class="review-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %> </p>  <!-- change on user name after-->
+            <p class="review-creating-date">From <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p>Status: <%= booking.status %></p>
             <% if booking.status == "requested" %>
               <p class="button"><%= link_to "accept", user_booking_path(user_id: @user, id: booking, status: "accepted"), method: :patch, data: { confirm: "Are you sure?" }  %></p>
               <p class="button"><%= link_to "declined", user_booking_path(user_id: @user, id: booking, status: "declined"), method: :patch, data: { confirm: "Are you sure?" } %></p>
             <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
-      <br>
     <% end %>
+  <% end %>
 <% end %>
-
-
-
 

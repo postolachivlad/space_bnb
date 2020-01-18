@@ -20,21 +20,20 @@
       <p class="no-review">No reviews at the moment, be the first to leave it</p>
     <% else %>
       <% @reviews.each do |review| %>
-      <div class="review">
-        <!-- cl_image_tag ("#{@user[0].photo}"), class: "avatar-large"  -->
-        <%= cl_image_tag (@ship.photo), class: "avatar-large" %>
-        <div class="review-content">
-          <div class="review-infos">
+        <div class="review">
+          <!-- cl_image_tag ("#{@user[0].photo}"), class: "avatar-large"  -->
+          <%= cl_image_tag (@ship.photo), class: "avatar-large" %>
+          <div class="review-content">
+            <div class="review-infos">
+              <p class="review-user-name"><%= @user[0].email %></p>  <!-- change on user name after-->
+              <p class="review-creating-date"><small> at </small></p>
+              <p><small><%= review.created_at %></small></p>
+              <p class="review-rating">Rating: <%= review.rating %></p>
+            </div>
 
-            <p class="review-user-name"><%= @user[0].email %></p>  <!-- change on user name after-->
-            <p class="review-creating-date"><small> at </small></p>
-            <p><small><%= review.created_at %></small></p>
-            <p class="review-rating">Rating: <%= review.rating %></p>
+            <p class="review-description"><%= review.description %></p>
           </div>
-
-          <p class="review-description"><%= review.description %></p>
         </div>
-      </div>
       <% end %>
     <% end %>
   </div>

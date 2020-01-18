@@ -1,5 +1,6 @@
 .review-infos {
   display: flex;
+  justify-content: space-around;
 }
 
 .review {
@@ -35,4 +36,7 @@
   transition: ease .3s;
 }
 
+.block{
+  width: 200px;
+}
 
