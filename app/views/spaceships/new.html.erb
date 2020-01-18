@@ -6,8 +6,16 @@
   <%= simple_form_for @ship, url: spaceships_path do |f| %>
     <%= f.input :name, class: "form-box", placeholder: "Name"%>
     <%= f.input :description, class: "form-box", placeholder: "Description"%>
-    <%= f.input :region, class: "form-box", placeholder: "Region"%>
+
+    <%
+=begin %>
+    commented, because not needed for product presentation
+    <%= f.input :longitude, class: "form-box", placeholder:"Longitude"%>
+    <%= f.input :latitude, class: "form-box", placeholder: "Latitude"%>
     <%= f.input :min_duration, class: "form-box", placeholder: "Minimum duration of booking in days", min:"0" %>
+    <%
+=end %>
+    <%= f.input :region, class: "form-box", placeholder: "Location"%>
     <div class="moving-log-in-btn">
       <%= f.input :photo%>
       <%= f.input :photo_cache, as: :hidden %>
