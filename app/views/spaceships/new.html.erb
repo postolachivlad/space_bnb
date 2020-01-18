@@ -6,6 +6,7 @@
   <%= simple_form_for @ship, url: spaceships_path do |f| %>
     <%= f.input :name, class: "form-box", placeholder: "Name"%>
     <%= f.input :description, class: "form-box", placeholder: "Description"%>
+
     <%
 =begin %>
     commented, because not needed for product presentation
@@ -14,7 +15,6 @@
     <%= f.input :min_duration, class: "form-box", placeholder: "Minimum duration of booking in days", min:"0" %>
     <%
 =end %>
-
     <%= f.input :region, class: "form-box", placeholder: "Location"%>
     <div class="moving-log-in-btn">
       <%= f.input :photo%>
